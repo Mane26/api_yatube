@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from .v1.views import CommentViewSet, GroupViewSet, PostViewSet
+from .views import CommentViewSet, GroupViewSet, PostViewSet
 
 router = DefaultRouter()
 
@@ -12,7 +12,5 @@ router.register('groups', GroupViewSet, basename='groups')
 
 
 urlpatterns = [
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-    path('v1/', include('api.v1.urls')),
+    path('', include(router.urls))
 ]
